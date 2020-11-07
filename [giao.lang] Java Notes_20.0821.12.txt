@@ -1,0 +1,117 @@
+﻿GHI CHÚ QUAN TRỌNG VỀ JAVA OOP 
+@2020 BY GIAO.LANG | FB/GIAO.LANG.BIS
+
+tiếp tục được cập nhật...
+
+
+*****************************************************************************
+1. Data type in Java 
+Có 2 loại kiểu dữ liệu trong Java
+
+* PRIMITIVE DATA TYPE - Dữ liệu đơn trị, một giá trị
+  đó là byte, short, int, long, float, double, char, boolean
+  quy ước đặt tên chữ thường, có sẵn trong JDK để xài
+
+
+* OBJECT DATA TYPE - Dữ liệu phức tạp, phức hợp, có thể gồm bên trong nó   nhiều dữ liệu đơn trị và object khác  
+  ví dụ: Dog(name, yob, hairColor), Person(id, name, addr, yob, sex, salary, nick, fb, zalo, phone...), Scanner(...), File(name, path,   size, type...), String, StringTokenizer, File, Scanner, Cat, Dog, Person
+
+  quy ước đặt tên kiểu object là Chữ Hoa Từng Đầu Từ
+  chính là cái Khuôn, chứa bên trong nó nhiều không gian, nhiều vùng chừa chỗ sẵn để chứa vật liệu bên ngoài đổ vào
+
+giao.lang's rules
+
+#1. CÓ BIẾN LÀ CÓ VÙNG NHỚ ĐC CẤP TRONG RAM
+    (vùng ram sẽ chiếm nhiều byte tùy data type, có địa chỉ, tọa độ  bắt đầu của vùng ram đó - còn gọi là địa chỉ biến - địa chỉ của  byte đầu tiên của vùng ram đc cấp)
+
+ví dụ: int a = 2000;   a chiếm 4 byte, bắt đầu từ byte thứ 6M, 6M + 1, + 2, + 3
+                                         6M là địa chỉ biến a;  printf("%u\n", &a);
+trong 4 byte kể từ 6M chứa 01010101 để convert đc thành 2K -> value của biến, on off vùng ram
+
+#2. BIẾN PRIMITIVE LƯU DATA NGAY TRONG VÙNG NHỚ ĐC CẤP
+int yob = 2001;  4 byte bắt đầu từ 6m chứa on off thành 2001
+yob nằm ở stack nếu nó đc khai báo trong hàm nào đó
+ 
+
+#3. CÓ NEW LÀ CÓ VÙNG NHỚ MỚI
+    (new nhân bản cái Khuôn, xin vùng ram bự đủ lớn để chứa các info đc đổ vào qua phễu - new là tạo object - new là trả về địa chỉ của vùng nhớ bự vừa cấp và đc đổ info - new trả về tọa độ của byte đầu  tiên của vùng nhớ đc cấp)
+vùng new nằm ở HEAP
+
+#4. BIẾN OBJECT (BIẾN CON TRỎ) TRỎ VÀO VÙNG NEW ĐC CẤP
+    (biến object lưu địa chỉ vùng new đc cấp, trỏ vào byte đầu tiên của vùng new đc cấp, lưu địa chỉ của byte đầu tiên của vùng new đc cấp)
+
+#5. SỜ VÙNG NEW ĐC CẤP QUA TÊN BIẾN OBJECT KÈM DẤU CHẤM
+    (sờ bên trong vùng new qua toán tử chấm và biến con trỏ vì biến con trỏ, biến object trỏ vào vùng new 
+     chấm đc hay ko lại còn tùy quyền được sờ - access modifier, access specifier: public, protected, default, private
+     ánh xạ ứng với FB-> public, friends (except) friends, only me
+
+#6. AI CÓ NHIỀU THÔNG TIN NHẤT, KẺ ĐÓ NÊN XỬ LÍ THÔNG TIN NÀY THAY VÌ KẺ KHÁC 
+    (hàm gắn với đối tượng để xử lí chính cái info mà nó đang chứa)
+ 
+   
+***************************************************************************** 
+2. NGUYÊN LÍ THIẾT KẾ OOP (câu hỏi phỏng vấn việc làm)
+2.1. ENCAPSULATION (đóng gói)
+  - Thông tin/dữ liệu và hành động xử lí dữ liệu đó thường gắn với từng đối tượng cụ thể. Ta gói thông tin và hành động vào trong 1 đơn vị gọi là object, tổng quát hơn là class
+  - Ví dụ: ngày sinh + tên + cân nặng + màu lông + tính tuổi() +
+  chích ngừa() + xổ lãi() + bắt con ve/giận() -> thuộc về con Dog
+
+  - Ví dụ: tên + ngày sinh + mã sinh viên + các cột điểm + xem đậu rớt() + làm quiz() + dùng source() -> thuộc về Sinh Viên
+2.2. ABSTRACTON
+  - coming soon... 
+2.3. INHERITANCE
+  - coming soon...
+2.4. POLYMORPHISM
+  - coming soon...
+
+*****************************************************************************
+3. RECIPE FOR COOKING A JAVA APP - CÔNG THỨC LÀM APP JAVA MỨC CƠ BẢN
+3.1. NHẬN DIỆN CÁC OBJECT, NHÓM OBJECT - CLASS/KHUÔN
+Object là những gì cụ thể, phân biệt được, đếm được, mô tả được xuất hiện trong bài toán. Object bao gồm đặc điểm và hành vi. 
+Trong đám object này, gom nhóm những object nào có vẻ same same nhau về đặc tính và hành vi, đặt cho nhóm đó 1 cái tên, ta gọi là class X. 
+*Ví dụ chiHu, ngaoDa... biết sủa, rượt mèo, có màu lông -> thuộc class Dog, 
+Một đám ngọ nguậy khác có tom, oggy, doraemon, kêu miu miu, rượt chuột chứ ko rượt mèo -> đám này thuộc nhóm/class Cat
+
+3.2. TẠO CLASS/KHUÔN 
+Tạo mới app/project -> sau đó tạo mới class X, nhớ chọn package tương ứng
+*Ví dụ: class Dog; package data; được gọi là data.Dog
+
+3.3. TẠO FIELD/KHOẢNG TRỐNG CHỪA CHỖ TRONG KHUÔN
+Tạo field/đặc điểm/biến thể hiện/instance variable lưu các đặc điểm của class, nhóm đối tượng, thường ta để chúng là private
+*ví dụ: private String name;
+
+3.4. TẠO PHỄU/CONSTRUCTOR DÙNG ĐÚC TƯỢNG, ĐỐI TƯỢNG
+Phễu/constructor dùng để đổ vật liệu/value/giá trị từ bên ngoài vào bên trong các field của Khuôn/Class. Có thể có nhiều constructor tương ứng với nhiều cách đúc tượng khác nhau
+
+3.5. TẠO CÁC HÀM GETX() SETX() LẤY VÀ SỬA THÔNG TIN ĐỐI TƯỢNG SẴN CÓ
+Tạo các hàm getX() setX() nếu cần thiết để lấy value đã đổ, sửa lại value đã đổ từ constructor. Các hàm này có thể gọi đi gọi lại nhiều lần. Chúng gọi chung là nhóm hàm getter/setter
+
+3.6. TẠO HÀM TOSTRING()
+Tạo hàm toString() nếu cần thiết, để in ra toàn bộ thông tin chi tiết của các field đã được đổ value. Bạn có thể tùy ý chỉnh sửa lại hàm này theo ý của bạn, nhưng không được đổi tên hàm và kiểu trả về
+
+PHỄU, HÀM GET() SET() TOSTRING() CÓ THỂ ĐƯỢC GENERATE TỰ ĐỘNG QUA PHÍM NÓNG ALT-INSERT, KHI ĐÓ XÀI THIS.
+
+3.7. TẠO CÁC HÀM TỰ TUI, CỦA RIÊNG MÌNH
+Tạo các hàm tự tui, tức là các hàm theo ý riêng của mình để xử lí các info đã đc đổ vào trong field. 
+*ví dụ: public double computeArea() là hàm dùng để tính diện tích hình nào đó...., showAll() bark()
+
+3.8. ĐÚC TƯỢNG, TẠO OBJECT 
+Sang bên main(), còn gọi là mặt sàn thi công, khai báo biến object thuộc class vừa tạo, new để tạo vùng nhớ mới chứa thông tin object, gọi phễu để đổ value vào. NHỚ IMPORT 
+ví dụ: Dog chiHu = new Dog("Chi Hu Hu", 2017, 0.5);
+       float pi  = 3.14;
+
+3.9. YÊU CẦU OBJECT LÀM GÌ ĐÓ QUA CHẤM VÀ BUNG LỤA
+Sờ vào bên trong của vùng được new do biến trỏ đến, gọi các hàm mà mình thích qua dấu chấm
+ví dụ: chiHu.showDetailed();  ngaoDa.bark();
+
+3.10. ÉP SÁU VÀ TẬN HƯỞNG KẾT QUẢ - AHIHI
+
+===============================
+Có hai cách chấm
+1. Chấm qua tên object, hàm thuộc về object, chiHu.bark(),  chiPu.sing("???"), sep.sing("Lạc trôi");
+   chấm sau khi new, có object rồi mới chấm đc
+
+2. Chấm trực tiếp, khỏi new, Math.sqrt(), Math.abs(),  System.out.....
+                             String.
+   String chơi cả 2 kiểu chấm luôn
+   Chấm trực tiếp nó dính đến khái niệm STATIC

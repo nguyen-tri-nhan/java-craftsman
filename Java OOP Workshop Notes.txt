@@ -1,0 +1,146 @@
+cuối kì 5, bạn sẽ bị đuổi khỏi trường trong 1 hoặc 2 kì nếu bạn học tốt
+tốt: 69 tín chỉ đã tích lũy (nợ ko quá 2 môn) tại 7.11.2020 (có thể thay đổi)
+kì 6 bạn ở cty nhà người ta, OJT SEMESTER, ON JOB TRAINING, ĐI THỰC TẬP
+nhà tuyển dụng hỏi bạn: OOP CONCEPTS, ABSTRACT CLASS VS. INTERFACE
+                                      OVERRIDE VS OVERLOADING
+
+                                      3NF TRONG DATABASE, THIRD NORMAL FORM
+                                               NORMALIZATION IN DB
+
+OOP CONCEPTS
+1. ABSTRACTION, TRỪU TƯỢNG HÓA
+BIẾN MỌI THỨ PHỨC TẠP THÀNH ĐƠN GIẢN = CÁCH RÚT TỈA RA NHỮNG THỨ ĐẶC TRƯNG CỦA THỨ PHỨC TẠP ĐÓ, BIỂU DIỄN LẠI, MÀ VẪN NHẬN RA BẢN GỐC
+
+CON NGƯỜI LÀ PHỨC TẠP, MÁY TÍNH LÀ PHỨC TẠP, MÈO PHỨC TẠP
+SINH VIÊN LÀ PHỨC TẠP
+LÀM SAO ĐỂ BIỂU DIỄN, PHÂN BIỆT ĐC SV KO PHẢI LÀ WORKER, OFFICER, GV, HỌC SINH TIỂU HỌC
+trừu tượng hóa: Student: (id, name, major, gpa, status, 
+                          takeFinal(), doAssignment(), makePresentation())
+trừu tượng hóa: Lecturer: (id, name, major, salary
+                           lecture(), postAssignment())      
+NHẬN DIỆN, TÌM CLASS CHÍNH LÀ BƯỚC TRỪU TƯỢNG HÓA
+
+2. ENCAPSULATION (ĐÓNG GÓI, BAO LẠI, CHE GIẤU)
+- dữ liệu, thông tin, hành động của ai đó, của thứ gì đó, của object nào đó
+  đc gom vào 1 chỗ, cô lập với đám khác, che giấu đi, có thể show ra nếu cần
+
+  Tui: thích vãi thính, thích câu view
+       cùng lúc chat với 10 em, năm sinh của tui: 2000
+   
+  Bạn: rất thích vãi thính, ngày nào cũng post tâm trạng
+       cùng lúc chat với 20 chàng trai khác, năm sinh: 2002
+
+  Bạn kia: rải thính, live, chốt deal
+           chat với 1000 customer, 
+         
+  FB công cộng, mỗi người có ACC riêng, WALL riêng, MSG riêng
+     mỗi người chủ động giấu, show ra khi cần
+     chat là giấu - private
+     tâm trạng: public, friend, friend except Hoang, only me
+
+  public class Student {
+     private String id;
+     private String name;  //default info của chúng ta nên là private
+     private double gpa;
+
+     public String getName() {
+        return name;   
+     }  
+  }
+
+  }
+
+MẶC ÁO QUẦN -> ENCAPSULATE (V), ENCAPSULATION (N)
+            -> MẶC ĐỒ KÍN -> PRIVATE
+            -> HỞ HANG    -> PUBLIC
+
+3. INHERITANCE (N), INHERIT(V) THỪA KẾ, ÉO LÀM MÀ VẪN CÓ ĐỂ XÀI
+                               KO PHẢI LÀ COPY/PASTE
+        ê ku, về nhà tao chơi đi (câu kế thừa)
+chuẩn:  ê ku, về nhà của ba của tao (và mai mốt là nhà của tao do ba tao cho 
+                                    tao thừa kế) chơi heng
+
+        ba bán nhà, vì chán ở vùng lụt lội rồi, dọn vô SG
+        câu nói trên vô nghĩa, vì mình kế thừa luôn việc mất quê, mất nhà
+
+        ba mua căn PENHOUSE, Ở LANDMARK 81, 
+        ê ku, lên nhà ba tao chơi hơm (mà mai mốt là của tao) 
+ 
+sự dùng lại, mà ko phải mất chút sức lực nào
+
+class HCN đã viết full ko che tính năng
+class HV kế thừa từ HCN, chỉ viết nhiêu đây là đủ, ko cần code gì thêm
+               full ko che tính năng (từ HCN)
+
+kế thừa: CÂU NÓI TỰ NHIÊN IS A KIND OF - câu này chỉ đọc 1 chiều
+CON LÀ MỘT PHIÊN BẢN CỦA BA
+HV LÀ MỘT HCN
+TGV LÀ MỘT TAM GIÁC
+CON MÈO LÀ MỘT THÚ CƯNG
+XE MÁY LÀ MỘT PHƯƠNG TIỆN GIAO THÔNG
+public class Motor extends Vehicle {
+
+}
+public class Square extends Rectangle {
+
+
+}
+
+
+4. POLYMORPHISM - ĐA XA, ĐA HÌNH, ĐA ÁNH XẠ, TỪ MỘT TỎA RA NHIỀU HƯỚNG
+
+
+
+
+INLIGHT
+
+
+
+CLASS vs. OBJECT vs. INSTANCE 
+Class: classify, classification
+gom nhóm 1 đám gì đó và đặt cho chúng 1 tên gọi
+class Pro: đám rất chuyên nghiệp
+class Newbie: đám amateur
+class Junior: đám đã 1 năm kinh nghiệm
+class Senior: đám rành rẽ
+
+Object: đối tượng
+
+Instance: thể hiện, hiện thân, phiên bản, 
+
+Student      s1           = new Student("SE123456", "An Nguyễn", 2000, 9.0);
+ DATA TYPE   biến object                        OBJECT, INSTANCE. VALUE PHỨC TẠP
+             object variable
+             reference variable
+             object reference variable
+             a pointer, 
+vì phức tạp, nên tui mún bít chi tiết hơn
+             s1.getGpa()
+             s1.showProfile()
+
+
+             pi
+
+Student      s2           = new Student("SE796789", "Thức Công", 2000, 4.9);
+             s2.getGpa()
+
+  
+        
+    Student rất phức tạp bên trong
+    Lecturer rất phức tạp
+    Person, Dog, Cat, File, String, StringTokenizer, Serializable,
+    System, Book, Phone, Device, Laptop,....
+    composite, complex vì mày chứa nhiều info hơn thằng PRIMITIVE   
+    OBJECT DATA TYPE
+ 
+   int  yob = 2000;  PRIMITIVE DATA TYPE
+                  byte, short, int, long, float, double, char, boolean
+   double pi = 3.14;
+               VALUE ĐƠN GIẢN
+   
+          biến primitive
+
+
+HOLA, 
+
+OOP: OBJECT ORIENTED PROGRAMMING
